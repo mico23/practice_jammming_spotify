@@ -32,9 +32,12 @@ class App extends React.Component {
       // by adding .id, the function will add duplicated items
       // includes() cannot compare the porperties inside an object with the provided value
         expandPlaylist.push(song);
+
+    let reduceResult = this.state.trackList;
+    this.setState({trackList: reduceResult.filter(currentTrack => currentTrack.id !== song.id)});
     }
     this.setState({playlist: expandPlaylist});
-    console.log(this.state.playlist);
+    //console.log(this.state.playlist);
   }
 
 
@@ -46,6 +49,12 @@ class App extends React.Component {
     let reducePlaylist = this.state.playlist;
 
     this.setState({playlist: reducePlaylist.filter(currentTrack => currentTrack.id !== song.id)});
+
+    let updateResult = this.state.trackList;
+    this.setState({trackList: updateResult.concat(song)});
+    //show avoid using .push here.
+    //.push mutates the original arrary
+    //console.log(this.state.trackList);
   }
 
   changePlaylistName(name) {

@@ -6,6 +6,9 @@ let searchTerm = undefined;
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      term: '',
+    };
 
     this.search = this.search.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
@@ -13,7 +16,8 @@ class SearchBar extends React.Component {
   }
 
   saveSearchTerm(e) {
-    searchTerm = e.target.value;
+    this.setState({term: e.target.value});
+    searchTerm = this.state.term;
   }
 
   search(term) {
