@@ -15,6 +15,8 @@ const Spotify = {
     }
     const evaluateToken = window.location.href.match(/access_token=([^&]*)/);
     const evaluateExpiry = window.location.href.match(/expires_in=([^&]*)/);
+
+    // check Token Expiry 
     if (evaluateToken && evaluateExpiry) {
         accessToken = evaluateToken[1];
         const expiresIn = Number(evaluateExpiry[1]);
@@ -55,7 +57,7 @@ const Spotify = {
   savePlaylist(name, trackUris) {
     let userId = undefined;
     let playlistID = undefined;
-    
+
     if (name && trackUris) {
       fetch('https://api.spotify.com/v1/me',
         {headers: {Authorization: `Bearer ${accessToken}`}}
