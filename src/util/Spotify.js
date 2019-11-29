@@ -1,4 +1,4 @@
-const clientId = '3fdd36a27b3c4747b7d9156ec9c633ac';
+const clientId = 'your token';
 // clientId is bad naming convention.
 // it's better to use clientId.
 const redirectUri = 'http://localhost:3000/';
